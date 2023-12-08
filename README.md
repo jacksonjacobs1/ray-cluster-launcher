@@ -109,3 +109,20 @@ To teardown the cluster, run the following command from the client machine:
 ```bash
 ray down local_cluster_config.yaml
 ```
+
+Ray down does not always terminate the worker nodes properly, as documented [here](https://github.com/ray-project/ray/issues/11098). Incomplete termination can cause issues while launching subsequent clusters. To check if the cluster has terminated properly, follow these steps:
+
+1. ssh into a worker node
+```bash
+ssh <worker-node-username>@<worker-node-ip-address>
+```
+
+2. Check for a hanging docker container.
+```bash
+docker ps | grep ray_container
+```
+
+3. If the container is still running, stop it.
+```bash
+docker stop ray_container
+```
