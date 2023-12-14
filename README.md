@@ -37,7 +37,9 @@ pip install -r requirements.txt
 ```
 
 ## Cluster Setup
-SSH passwordless login must be enabled between the head node and all worker nodes. This can be done by generating a public/private key pair on the head node and copying the public key to all worker nodes. See [here](https://www.ssh.com/ssh/copy-id) for more details. Here is an example of how this may be done:
+Cluster setup is a user-level procedure, as opposed to a system-level procedure: **Each user must set up their cluster individually.** The client machine is used to launch the cluster, so SSH passwordless login must be enabled between the client machine and all cluster nodes. 
+
+This can be done by generating a public/private key pair on the client machine and copying the public key to the cluster nodes. See [here](https://www.ssh.com/ssh/copy-id) for more details. Here is an example of how this may be done:
 
 1. On the client machine, generate a public/private key pair and press enter through the prompts. It's important to leave the passphrase blank.
 ```bash
